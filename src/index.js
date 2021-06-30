@@ -1,17 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom"; // virture dom : 빈 html 페이지가 랜더 되기전 React 가 
+import App from "./App";          // Funtion App.js 를 통해 insert 된 명령어 Virture dom 불러오기
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById('root'));   // 실제 index.html 에 App.js 연결
+              // <App /> : React 의 컴포넌트 = html 을 반환하는 함수 
