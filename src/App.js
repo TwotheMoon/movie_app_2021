@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // function Food(props){ // props : 인수 안에 fav = 속성 담겨있음
 //   return<h1>I like {props.fav}</h1>
@@ -12,7 +13,7 @@ const foodILike = [
     id:1,
     name: "kimchi",
     image:
-    "http://tour.pc.go.kr/?r=home&c=4/25&uid=http://tour.pc.go.kr/files/2017/03/16/2c77e779b5a5caa8d129a105a34e677a093927.jpg",
+    "https://dimg.donga.com/wps/NEWS/IMAGE/2021/03/12/105850095.2.jpg",
     rating: 5
   },
   {
@@ -38,19 +39,26 @@ const foodILike = [
   }
 ];
           // Food 객체 생성
-function Food({name, picture}){  // Food 컴포넌트 에 인수 = {foodILike.map(dish =>  <Food name={dish.name} picture={dish.image} /> ) }
+function Food({name, picture, rating}){  // Food 컴포넌트 에 인수 = {foodILike.map(dish =>  <Food name={dish.name} picture={dish.image} /> ) }
   return (<div>                       
       <h2>I like {name}</h2>
+      <h4>{rating}/5.0</h4>
       <img src={picture} alt={name} />
   </div>
   );
 }
 
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number
+};
+
 function App() {  // index.js "root"라는 엘리먼트에 적용
   return (
     <div>
        {foodILike.map(dish => (
-       <Food key={dish.id} name={dish.name} picture={dish.image} />
+       <Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating} />
     ))}
     </div>
   );
